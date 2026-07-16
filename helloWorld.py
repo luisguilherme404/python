@@ -236,4 +236,4 @@ As listas são úteis para coleções ordenadas e mutáveis, as tuplas para cole
 pares de chave valor e os conjuntos para coleções não ordenadas de elementos únicos.
 
 """
-#teste
+
