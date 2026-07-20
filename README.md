@@ -1,2 +1,3 @@
 # python
-Projetos pessoais =)
+Estudos... 
+=)
