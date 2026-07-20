@@ -20,4 +20,4 @@ while num != 0:
     num = int(input("Input a integer: "))
     
     
-
+#teste
