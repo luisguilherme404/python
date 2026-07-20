@@ -18,6 +18,13 @@ qtdNum = 0
 while True:     #enquanto num for diferente de 0 continue inserindo um nº inteiro
     
     num = int(input("Enter a integer (0 to exit): "))
+    maior = num
+    menor = num
+
+    if num > maior:
+        maior = num
+    if num < menor:
+        menor = num
 
     if num == 0:
         break
@@ -30,7 +37,12 @@ while True:     #enquanto num for diferente de 0 continue inserindo um nº intei
     else:
         media = 0
 
+
     
+print(maior)
+print(menor)
+
+
 print(f"\n-> Numbers quantity (except 0): {qtdNum}")
 print(f"-> Sum: {soma}")
 print(f"->Média: {media}")
