@@ -20,14 +20,25 @@ Digite: 24
 Esse exercício força bastante o raciocínio com for, % e if.
 """
 
-divisores = 1
 
 num = int(input("Informe um número inteiro: "))
 
-for sla in range(1, num):
+for divisores in range(1, num + 1):
 
-    if num % sla == 0:
+    if num <= 1:
+        print(f"{num} não é primo.")
+        break
+
+    if num % divisores == 0:
         divisores += 1
-        
+        print(f"{num} é primo")
+    if num % divisores > 0:
+        print("Não é primo")
 
-print(divisores)
+            
+
+
+            
+    
+
+
