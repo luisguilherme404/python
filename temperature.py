@@ -57,7 +57,6 @@ while True:
     if temp == 999:
         break
 
-
     #maior e menor
     if qtd == 0:
         maior = temp
