@@ -31,15 +31,39 @@ variável primo
 É um excelente desafio para consolidar tudo o que você aprendeu até agora.
 """
 
-num1 = int(input("1º -> Informe um número inteiro (-1 para sair): "))
-num2 = int(input("2º -> Informe um número inteiro (-1 para sair): "))
+while True:
+    num1 = int(input("1º -> Informe um número inteiro (-1 para sair): "))
+    num2 = int(input("2º -> Informe um número inteiro (-1 para sair): "))
 
-primo = True
+    primo = True
 
-if num1 == -1 or num2 == -1:
-    break
+    if num1 == -1 and num2 == -1:
+        break
 
-for divisores in range(num1, num2):
+    if num1 <= 1 or num2 <= 1:
+        primo = False
+        break
+
+    else: 
+        for divisores in range(2, num1):
+
+            if num1 % divisores == 0:
+              primo = False
+              break
+
+            for divisores in range(2, num2):
+                if num2 % divisores == 0:
+                    primo = False
+                    break
+
+if primo:
+    print(f"Números primos: ")
+
+
+
+
+
+
 
 
 
