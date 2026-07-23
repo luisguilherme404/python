@@ -33,27 +33,30 @@ variável primo
 
 while True:
 
-    num1 = int(input("1º -> Informe um número inteiro (-1 para sair): "))
+    num1 = int(input("\n1º -> Informe um número inteiro (-1 para sair): "))
 
-    if num1 == -1:
+    if num1 == -1:  #se num1 = -1 o programa é finalizado
+        print("Programa finalizado.\n")
         break
 
-    num2 = int(input("2º -> Informe um número inteiro (-1 para sair): "))
+    num2 = int(input("2º -> Informe um número inteiro: "))
+    #print("\n")
+
+    if num1 > num2:     #se num1 for maior que num2 troque os valores das variáveis
+        num1, num2 = num2, num1     
 
 
-    for i in range(num1, num2):     #i percorre do num1 até num2
+    for i in range(num1, num2 + 1):  #o for atribui o valor de num1, num2 ao i para o próximo for; ex: num1=2, num2=11 -> i = 2 a 10
         primo = True
 
-        for divisores in range(2, i):        
-
-            if i <= 1:
-                primo = False
-                break
-            
-            else:
-                if i % divisores == 0:
+        if i <= 1:          #se i <= 1 já considera como não primo e nem exibe
+            primo = False
+        else:
+            for divisores in range(2, i):           #percorre do 2 ao valor de i; ex: i=3 entre 3 e 2 só existe o 2, 3 % 2 o resto é 1, então é primo     
+                                                    #i = 4, entre 4 e 2 existe 2 e 3, 4%2 tem resto 0, então não é primo
+                if i % divisores == 0:  #se i = 3; 
                     primo = False
                     break
-        if primo:
-            print(i)
-                   
+
+            if primo:
+                print("Número primo:", i)
