@@ -28,42 +28,38 @@ somaIdade = 0
 mediaIdade = 0
 
 while True:
+    fim = input("\nDigite s-sair ou c-continuar : ")
 
-    jogador = {"nome" : input("Informe um nome: "), "idade": int(input("Infome a idade: ")), "gols" : int(input("Informe a quantidade de gols marcados: ")) }
-
-
-    if jogador["nome"] == "fim":
+    if fim == "s" or fim == "S":
         break
+
+    jogador = {"nome" : input("Informe um nome: "), 
+               "idade": int(input("Infome a idade: ")), 
+               "gols" : int(input("Informe a quantidade de gols marcados: ")) }
+
 
     if qtdJ == 0:
         maisVelho = jogador["idade"]
         maisNovo = jogador["idade"]
 
-    else:
-
-        if jogador["idade"] > maisVelho:
-            maisVelho = jogador["idade"]
-
-        if jogador["idade"] < maisNovo:
-            maisNovo = jogador["idade"]     
+    qtdJ += 1
+    somaIdade += jogador["idade"]
+    golsTotais += jogador["gols"]
 
 
-        qtdJ += 1
-        golsTotais += jogador["gols"]
-        somaIdade += jogador["idade"]
+    if jogador["idade"] > maisVelho:
+        maisVelho = jogador["nome"]
 
-mediaIdade = somaIdade / qtdJ
+    if jogador["idade"] < maisNovo:
+        maisNovo = jogador["nome"]     
 
-
+if mediaIdade > 0   :
+    mediaIdade = somaIdade / qtdJ
     
 
-     
-
-
-
-
-
-print("\nQtd de jogadores cadastrados:", qtdJ)
+print("\nJogador mais velho:", maisVelho )
+print("Jogador mais novo:", maisNovo )
+print("Qtd de jogadores cadastrados:", qtdJ)
 print("Total de gols:", golsTotais)
 print("Soma das idades:", somaIdade)
 print("Media das idades:", mediaIdade)
