@@ -16,49 +16,61 @@ No final mostre:
 Quantidade de jogadores cadastrados.    -> ok 
 Nome do jogador com mais gols.
 Quantidade de gols desse jogador.
-Nome do jogador mais velho.
-Nome do jogador mais novo.
+Nome do jogador mais velho.             -> ok 
+Nome do jogador mais novo.              -> ok 
 Média de idade dos jogadores.           -> ok
 Total de gols marcados pela equipe.     -> ok
 """
 qtdJ = 0    #quantidade de jogadores
+qtdGols = 0    #quantidade de jogadores
 golsTotais = 0  #total de gols da equipe
-golsInd = 0
 somaIdade = 0
 mediaIdade = 0
 
 while True:
-    fim = input("\nDigite s-sair ou c-continuar : ")
+  
+    nome = input("\nInforme um nome ('s/S' para finalizar): ")
 
-    if fim == "s" or fim == "S":
+    if nome == 's' or nome == 'S':
         break
 
-    jogador = {"nome" : input("Informe um nome: "), 
-               "idade": int(input("Infome a idade: ")), 
-               "gols" : int(input("Informe a quantidade de gols marcados: ")) }
+    idade = int(input("Infome a idade: "))
+    gols = int(input("Informe a quantidade de gols marcados: "))
 
 
     if qtdJ == 0:
-        maisVelho = jogador["idade"]
-        maisNovo = jogador["idade"]
+        maisVelho = idade
+        maisNovo = idade
+        nomeVelho = nome
+        nomeNovo = nome
+
+    if qtdGols == 0:
+        maisGols = gols
+        nomeMaisGols = nome
 
     qtdJ += 1
-    somaIdade += jogador["idade"]
-    golsTotais += jogador["gols"]
+    somaIdade += idade
+    golsTotais += gols
+
+    if gols > maisGols:
+        maisGols = gols
+        nomeMaisGols = nome
 
 
-    if jogador["idade"] > maisVelho:
-        maisVelho = jogador["nome"]
+    if idade >= maisVelho:
+        maisVelho = idade
+        nomeVelho = nome
 
-    if jogador["idade"] < maisNovo:
-        maisNovo = jogador["nome"]     
+    if idade < maisNovo:
+        maisNovo = idade     
+        nomeNovo = nome
 
 if mediaIdade > 0   :
     mediaIdade = somaIdade / qtdJ
     
-
-print("\nJogador mais velho:", maisVelho )
-print("Jogador mais novo:", maisNovo )
+print(f"Jogador com mais gols: {nomeMaisGols}. QTD = ({maisGols} gols)")
+print(f"Jogador mais velho: {nomeVelho} ({maisVelho})" )
+print(f"Jogador mais novo: {nomeNovo} ({maisNovo})" )
 print("Qtd de jogadores cadastrados:", qtdJ)
 print("Total de gols:", golsTotais)
 print("Soma das idades:", somaIdade)
