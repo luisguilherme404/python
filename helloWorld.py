@@ -119,6 +119,7 @@ for i in range(10):
 
 frutas = ["maçã", "uva", "melancia", "morango", "manga"]
 
+"""
 print(frutas[4])    #variável[~posição~] acessa o termo selecionado de acordo com a posição
 print(frutas[2])    #variável[~posição~] acessa o termo selecionado de acordo com a posição
 print(frutas[0])    #variável[~posição~] acessa o termo selecionado de acordo com a posição
@@ -151,9 +152,11 @@ print('Numeros originais:', numeros)
 
 quadrados = [x ** 2 for x in numeros if x % 2==0]   # 'x' recebe os numeros PARES ao QUADRADO
 print('Números pares ao quadrado:', quadrados)
+"""
 
 # =========ESTRUTURA DE DADOS (TUPLAS)=========
 
+"""
 print("\n========= TUPLA =========")
 
 ponto = (3, 4)
@@ -185,6 +188,7 @@ print("Todos os itens:", pessoa.items())            #imprime todos os pares de c
 
 pessoa.update({"profissão": "Almoxarife"})          #atualiza o dicionário adicionando outro par de chaves-valores
 print("Dicionário atualizado:", pessoa.items())
+"""
 
 #========= CONJUNTOS (set) =========
 
@@ -192,6 +196,7 @@ print("Dicionário atualizado:", pessoa.items())
 Um conjunto é uma estrutura de dados mutável e não ordenada que permite armazenar uma coleção de elementos únicos.
 Os conjuntos são delimitados por chaves {} ou são criados utilizando a função set().
 Os conjuntos suportam operações matemáticas de conjuntos, como a união (|), a interseção (&), a diferença (-) e a diferença simétrica (^).
+"""
 """
 frutas = {"cupuaçu", "jaca", "ameixa", "amora"}
 numeros = set([1, 2, 3, 2, 3, 4, 2])
@@ -231,9 +236,38 @@ frutas.clear()
 print("Limpeza:", frutas)   #limpa o conjunto e exibe set()
 
 """
+"""
 As estruturas de dados em Python nos oferecem grande flexibilidade e potência para armazenar e manipular dados em nossos programas. 
 As listas são úteis para coleções ordenadas e mutáveis, as tuplas para coleções ordenadas e imutáveis, os dicionários para armazenar 
 pares de chave valor e os conjuntos para coleções não ordenadas de elementos únicos.
 
 """
 
+#========= FUNÇÕES =========
+
+def saudacoes():
+    print("Hello World.")
+    
+saudacoes() #imprime "Hello World."
+
+#========= PARÂMETROS E ARGUMENTOS =========
+nome = "LOUiS"
+
+def saudacoes(estudante):
+    print(f"Olá {estudante}!")
+
+saudacoes(nome)    
+
+#========= VALORES DE RETORNO =========
+def soma(a, b):
+    return a + b
+
+resultado = soma(3, 4)
+print("Resultado:", resultado)
+
+#========= FUNÇÕES ANÔNIMAS (lambda) =========
+quadrado = lambda x: x ** 2
+print("Quadrado:", quadrado(5))
+
+num = quadrado(10)
+print("Quadrado:", num)
