@@ -297,7 +297,7 @@ print("Váriável global:", variavel_global)
 
 #========= FUNÇÕES DEFINIDAS PELO USUÁRIO  =========
 
-def calcularMedia(*numeros):        
+def calcularMedia(*numeros):    #utiliza-se o '*' antes do argumento quando se tem vários elementos como uma sequência        
     soma = sum(numeros) #soma dos elementos
     qtd = len(numeros)  #quantidade de elementos
     media = soma / qtd
@@ -332,3 +332,17 @@ def area_retangulo(base, altura):
         float: A área do retângulo.
     """
     return base * altura
+
+print("Área do retangulo:", area_retangulo(23.4, 9.88))
+
+#========= FUNÇÕES COM NÚMERO VARIÁVEL DE ARGUMENTOS  =========
+
+def somaVariavel(*numeros):
+    total = 0
+    for numero in numeros:
+        total += numero
+    
+    return total
+
+print("Primeira soma:", somaVariavel(2, 4, 6))
+print("Segunda soma:", somaVariavel(3, 5, 7))
