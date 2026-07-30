@@ -266,8 +266,69 @@ resultado = soma(3, 4)
 print("Resultado:", resultado)
 
 #========= FUNÇÕES ANÔNIMAS (lambda) =========
+#função comum
+def quadrado(x):
+    return x ** 2
+
+print("Quadrado:", quadrado(4))
+
+#função anônima
 quadrado = lambda x: x ** 2
-print("Quadrado:", quadrado(5))
+print("Quadrado (ANÔNIMA):", quadrado(4))
 
 num = quadrado(10)
 print("Quadrado:", num)
+
+#========= ESCOPO DAS VARIÁVEIS (LOCAL VS GLOBAL)  =========
+
+def funcao():
+    variavel_local = 10
+    print("Váriável local:", variavel_local)   #acessível SOMENTE dentro da função
+
+variavel_global = 20
+
+def funcao2():
+    print("Váriável global:", variavel_global)
+
+funcao()
+funcao2()
+print("Váriável global:", variavel_global)
+#print(variavel_local)
+
+#========= FUNÇÕES DEFINIDAS PELO USUÁRIO  =========
+
+def calcularMedia(*numeros):        
+    soma = sum(numeros) #soma dos elementos
+    qtd = len(numeros)  #quantidade de elementos
+    media = soma / qtd
+    print("Soma:", soma)
+    print("Qtd:", qtd)
+    return media
+
+print("Media:", calcularMedia(10, 15, 20, 25, 30))  #atribuição dos valores para *numeros
+
+def somar3(x):
+    return x + 3
+
+print(f"Soma:", somar3(5))
+
+somar = lambda x: x + 7
+print(f"Soma (ANÔNIMA):", somar(5))
+
+#========= DOCUMENTAÇÃO DE FUNÇÕES (DOCSTRINGS)  =========
+#para a boa prática é bom documentar o propósito da função
+
+def area_retangulo(base, altura):
+    """
+    Calcula a área de um retângulo.
+
+
+    Args:
+        base (float): A base do retângulo.
+        altura (float): A altura do retângulo.
+
+
+    Returns:
+        float: A área do retângulo.
+    """
+    return base * altura
