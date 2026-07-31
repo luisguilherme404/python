@@ -242,6 +242,7 @@ As listas são úteis para coleções ordenadas e mutáveis, as tuplas para cole
 pares de chave valor e os conjuntos para coleções não ordenadas de elementos únicos.
 
 """
+"""
 
 #========= FUNÇÕES =========
 
@@ -320,6 +321,7 @@ print(f"Soma (ANÔNIMA):", somar(5))
 
 def area_retangulo(base, altura):
     """
+"""
     Calcula a área de um retângulo.
 
 
@@ -331,6 +333,7 @@ def area_retangulo(base, altura):
     Returns:
         float: A área do retângulo.
     """
+"""
     return base * altura
 
 print("Área do retangulo:", area_retangulo(23.4, 9.88))
@@ -346,3 +349,8 @@ def somaVariavel(*numeros):
 
 print("Primeira soma:", somaVariavel(2, 4, 6))
 print("Segunda soma:", somaVariavel(3, 5, 7))
+    """
+
+#========= MANEJO E EXCEÇÕES =========
+#Em Python, tratamento (manejo) de exceções é um mecanismo que permite que seu programa 
+#continue funcionando ou trate um erro de forma controlada, em vez de simplesmente encerrar com uma mensagem de erro.
