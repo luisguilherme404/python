@@ -438,5 +438,22 @@ from math import sqrt #funções específicas do módulo math
 resultado = sqrt(49)
 print('Com import sqrt:', resultado)
 
+import random
+import datetime
+
+num = random.randint(0, 1)
+print('Nº aleatório entre 1 e 20: ', num)
+
+dataAtual = datetime.datetime.now()
+print('Data atual:', dataAtual)
+
+import meuModulo
+
+meuModulo.saudar("LOUiS")
+resultado = meuModulo.calcular(15, 17)
+print("Soma = ", resultado)
+
+
+
 
 
