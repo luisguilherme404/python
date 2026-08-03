@@ -351,6 +351,92 @@ print("Primeira soma:", somaVariavel(2, 4, 6))
 print("Segunda soma:", somaVariavel(3, 5, 7))
     """
 
-#========= MANEJO E EXCEÇÕES =========
+#========= MANEJO E EXCEÇÕES (TRY, EXCEPT e FINALLY) =========
 #Em Python, tratamento (manejo) de exceções é um mecanismo que permite que seu programa 
 #continue funcionando ou trate um erro de forma controlada, em vez de simplesmente encerrar com uma mensagem de erro.
+
+"""
+num = 0   #sem int para testar o except TypeError
+qtd = 5
+
+#TRY:o bloco try contém um código que pode gerar uma exceção (divisão é por zero), quando isso acontece a execução pula para o bloco 
+# except. Sáida = Erro: divisão por zero 
+try:
+    media = qtd / num
+    print(f'(Deu certo) Média: {media}')
+
+#EXCEPT: aqui é especificado qual tipo de exceção se deseja lidar, pode haver inúmeros blocos EXCEPT
+except ZeroDivisionError:
+    print('Erro: divisão por zero!')
+except TypeError:
+    print("Atenção: você está tenatando calcular int com str, confira o input e corrija")
+except FileNotFoundError:
+    print('Atenção: arquivo não encontrado')
+
+#FINALLY: usado para tarefas de limpeza ou liberação de recursos finalização de arquivos possuindo exceções ou não
+#finally:
+    #arquivo.close
+
+
+def funcao(idade):
+    if idade < 18:
+        raise Exception("Entrada proibida para menores de idade") #raise lança uma exceção, exception cria uma msg personalizada
+
+    print('Bem vindo à festa!')
+
+try:    #tenta executar
+    funcao(18)
+
+except Exception as var: #caso tenha a exceção, a mensagem de Exception é armazenada em "var" 
+    print(str(var))  #exibe a msg armazenada em "var"
+
+"""
+
+#========= ENTRADA/SAÍDA DE DADOS =========
+"""
+try:
+    nome = input('Informe seu nome: ')
+    idade = input('Informe sua idade: ')
+    print('Eai, ' + nome + '!')
+    print(f'Você tem {idade} anos.')
+    
+except KeyboardInterrupt:
+    print("Programa finalizado com shortcut do teclado")
+"""
+
+#========= LEITURA E ESCRITA DE ARQUIVOS =========
+
+#LEITURA:
+"""
+arquivo = open("dados.txt", 'r')    #"r"/'r' -> modo leitura
+conteudo = arquivo.read()
+print(conteudo)
+arquivo.close()
+
+#ESCRITA:
+arquivo = open('dados.txt', 'w')
+arquivo.write('Hello World!')
+arquivo.close()
+
+#--------- SEMPRE FECHAR OS ARQUIVOS ( arquivo.close() ) PARA LIBERAR RECURSOS DO SISTEMA ---------
+
+#WITH: encerra o programa automaticamente após sair do bloco
+with open("dados.txt", 'r') as arquivo:
+    conteudo = arquivo.read()
+    print(conteudo)
+"""
+
+#========= MÓDULOS =========
+
+#Módulo é um arquivo que contém definições de funções, classes e variáveis que podem ser utilizadas em outros programas
+
+import math     #funções matemáticas
+resultado = math.sqrt(144)
+print('Sem import sqrt', resultado)
+
+from math import sqrt #funções específicas do módulo math
+resultado = sqrt(49)
+print('Com import sqrt:', resultado)
+
+
+
