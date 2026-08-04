@@ -1,5 +1,6 @@
 import random
 import time
+import meuModulo
 
 def soma(num):
     soma = 0
@@ -16,5 +17,5 @@ while True:
         time.sleep(3)
 
     except KeyboardInterrupt:
-        print('\nATENÇÃO: você usou o atalho \'CTRL + C\' para finalizar o programa')
+        meuModulo.msgExcecao(True)
         break
