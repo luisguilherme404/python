@@ -453,7 +453,5 @@ meuModulo.saudar("LOUiS")
 resultado = meuModulo.calcular(15, 17)
 print("Soma = ", resultado)
 
-
-
-
-
+print('{}'.format(resultado))
+print(type(resultado))
