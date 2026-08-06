@@ -107,9 +107,10 @@ while True:
     def valores():
         soma = 0
 
-        for percorrer in produtos:  #valor total
-
+        #valor total
+        for percorrer in produtos:  
             soma += percorrer['Valor']
+
         print(f'Valor total: {soma}')
             
     adicionar()
