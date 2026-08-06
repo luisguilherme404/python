@@ -1,21 +1,36 @@
 #Pedra, papel, tesoura
 
-import random
+import random 
 import time
+import meuModulo
 
 placarUser = 0
 placarMq = 0
 while True:
-    
-    maquina = random.randint(1, 3)
-    escolha = int(input('\n0- Sair / 1 - Rock / 2 - Paper / 3 - Scissor: '))
+    try:
+        maquina = random.randint(1, 3)
+        escolha = int(input('\n0- Sair / 1 - Rock / 2 - Paper / 3 - Scissor: '))
+
+    except KeyboardInterrupt:
+        meuModulo.msgExcecao(True)
+        break
+
+    except ValueError:
+        print('\nAVISO:\n1 - Saia do programa antes de tentar rodar novamente.'
+              '\n2 - Escolha de acordo com as opções fornecidas no menu.'
+              '\n3 - Tentou quebrar o código? °-°')
+        continue
+
+    #0 para sair
     if escolha == 0:
+        print('Obrigado por jogar!')
         print('Programa finalizado...\n')
         time.sleep(1)
         break
-    elif escolha < 1 or escolha > 3:
+    #caso o usuário insira qualqur outro nº fora das opções
+    elif escolha < 0 or escolha > 3:
         for i in range(1, 4):
-            print('Não fode, escolha entre 1 e 3. LERDÃO `-´')
+            print('Não fode, escolha entre as opções fornecidas. LERDÃO `-´')
             time.sleep(1)
 
     #pedra e papel
@@ -25,7 +40,6 @@ while True:
         maq = 'Papel'
         print(f'VOCÊ: {user}\nMÁQUINA: {maq}')
         print('========= MÁQUINA GANHOU! =========')
-        #print(f'-> Placar: Usuário {placarUser} x {placarMq} Máquina')
         
     elif maquina == 1 and escolha == 2:
         placarUser += 1
@@ -33,7 +47,6 @@ while True:
         maq = 'Pedra'
         print(f'VOCÊ: {user}\nMÁQUINA: {maq}')
         print('========= USUÁRIO GANHOU! =========')
-        #print(f'-> Placar: Usuário {placarUser} x {placarMq} Máquina')
         
 
     #papel e tesoura
@@ -43,7 +56,6 @@ while True:
         maq = 'Tesoura'
         print(f'VOCÊ: {user}\nMÁQUINA: {maq}')
         print('========= MÁQUINA GANHOU! =========')
-        #print(f'-> Placar: Usuário {placarUser} x {placarMq} Máquina')
         
     elif escolha == 3 and maquina == 2:
         placarUser += 1
@@ -51,8 +63,8 @@ while True:
         maq = 'Papel'
         print(f'VOCÊ: {user}\nMÁQUINA: {maq}')
         print('========= USUÁRIO GANHOU! =========')
-        #print(f'-> Placar: Usuário {placarUser} x {placarMq} Máquina')
 
+    #empate
     #tesoura e pedra
     elif escolha == 1 and maquina == 3:
         placarUser += 1
@@ -60,16 +72,16 @@ while True:
         maq = 'Tesoura'
         print(f'VOCÊ: {user}\nMÁQUINA: {maq}')
         print('========= USUÁRIO GANHOU! =========')
-        #print(f'-> Placar: Usuário {placarUser} x {placarMq} Máquina')
 
+    #empate
     elif escolha == 3 and maquina == 1:
         placarMq += 1
         maq = 'Pedra'
         user = 'Tesoura'
         print(f'VOCÊ: {user}\nMÁQUINA: {maq}')
         print('========= MÁQUINA GANHOU! =========')
-        #print(f'-> Placar: Usuário {placarUser} x {placarMq} Máquina')
 
+    #empate
     elif escolha == maquina:
         if escolha == 1:
             user = 'Pedra'
