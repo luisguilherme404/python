@@ -99,3 +99,4 @@ while True:
         print('========= EMPATE! =========')
 
     print(f'-> Placar: Usuário {placarUser} x {placarMq} Máquina')
+    
