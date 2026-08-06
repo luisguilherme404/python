@@ -14,7 +14,9 @@ while True:
         time.sleep(1)
         break
     elif escolha < 1 or escolha > 3:
-        print('Não fode, escolha entre 1 e 3. LERDÃO!')
+        for i in range(1, 4):
+            print('Não fode, escolha entre 1 e 3. LERDÃO `-´')
+            time.sleep(1)
 
     #pedra e papel
     if escolha == 1 and maquina == 2:
