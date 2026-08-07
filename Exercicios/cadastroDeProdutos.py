@@ -85,34 +85,44 @@ import time
 
 produtos = []
 valor = []
-while True:
+soma = 0
 
-    def adicionar():
-        nome = input('\nInforme o nome do produto: ')
-        valor = float(input('Informe o preço do produto: R$ '))
-        qtdProdutos = int(input('Informe a quantidade de produtos:'))
+def adicionar():
+    nome = input('\nInforme o nome do produto: ')
+    valor = float(input('Informe o preço do produto: R$ '))
+    qtdProdutos = int(input('Informe a quantidade de produtos:'))
+    soma = valor * qtdProdutos
 
-        produto = {
-                'Nome': nome,
-                'Valor': valor,
-                'Quantidade': qtdProdutos
-                    }
-        
-        produtos.append(produto)
+    produto = {
+            'Nome': nome,
+            'Valor unitário': valor,
+            'Quantidade': qtdProdutos,
+            'ValorSomado': soma 
+                }
+    
+    produtos.append(produto)
 
-    def lista():
-        for percorrer in produtos:
-            print(percorrer)
+def lista():
+    for percorrer in produtos:
+        print(percorrer)
 
-    def valores():
-        soma = 0
+def valores():
+    somaTotal = 0
 
-        #valor total
-        for percorrer in produtos:  
-            soma += percorrer['Valor']
+    #valor total
+    for percorrer in produtos:  
+        somaTotal += percorrer['ValorSomado']
+        print(percorrer['Valor'])
 
-        print(f'Valor total: {soma}')
+    print(f'Valor total: {somaTotal}')
             
-    adicionar()
-    lista()
+while True:
+    print('{:=^9} ESTOQUE {:=^9}\n'.format('', ''))
+    print('0 - Sair')
+    print('1 - Adicionar produto')
+    print('2 - Produtos cadastrados')
+    print('3 - Valores')
+adicionar()
     valores()
+    break
+
