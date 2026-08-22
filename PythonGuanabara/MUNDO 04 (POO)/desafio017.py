@@ -6,6 +6,9 @@ que mostre a etiqueta de preço do produto
 """
 from rich.table import Table
 from rich import print
+from rich.traceback import install
+install()
+
 itens = []
 
 #característica padrão dos produtos cadastrados, vulgo classe
