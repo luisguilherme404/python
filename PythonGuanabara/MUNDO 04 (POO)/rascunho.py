@@ -6,39 +6,47 @@ que mostre a etiqueta de preço do produto
 """
 from rich.table import Table
 from rich import print
+from rich.traceback import install
+install()
 
+itens = []
+
+#característica padrão dos produtos cadastrados, vulgo classe
 class Produto:
+    #valores default
     def __init__(self, nome = 'None', preco = 0):
         self.nome = nome
         self.preco = preco
 
-    def etiqueta(self):
-        return f'{self.nome} - R$ {self.preco:.2f}'
+    #mostrar produtos em forma de tabela com a biblioteca rich
+    def mostrarTabela(self):
+        tabela = Table(title='\n[bold on black]PRODUTOS[/]') #título
+        tabela.add_column('Nome')   #coluna Nome
+        tabela.add_column('Preço')  #coluna Preço
+        
+        for i in itens:
+            tabela.add_row(f'{i['Nome']}', f'R${i['Valor']:.2f}') #add linha a cada produto cadastrado
+
+        return tabela   #exibir tabela
 
     def __str__(self):
-        return self.etiqueta()
+        return self.mostrarTabela() #chama a função de mostrar tabela
 
-produtos = []
-
+#while para cadastrar vários:
 while True:
+    #nome e preço do produto:
     nome = input('\nInforme o nome do produto: ')
     custo = float(input('Informe o preço do produto: '))
 
-    produto = Produto(nome, custo)
-    produtos.append(produto)
+    #produtos cadastrados:
+    produtos = {
+        'Nome': nome,
+        'Valor': custo
+    }  
 
-    continuar = input('Deseja cadastrar outro produto (s/n): ')
-    if continuar == 'n' or continuar == 'N':
-        break
+    #adicionar produtos cadastrados no fim da lista:
+    itens.append(produtos)
 
-tabela = Table(title='\n[bold on black]PRODUTOS[/]') #título
-tabela.add_column('Nome')   #coluna Nome
-tabela.add_column('Preço')  #coluna Preço
-
-for i in produtos:
-    tabela.add_row(
-        i.nome,
-        f'R$ {i.preco:.2f}'
-    )
-
-print(tabela)
+    #objeto:
+    produtoCadastrado = Produto(produtos['Nome'], produtos['Valor'])
+    print(produtoCadastrado.__str__())
