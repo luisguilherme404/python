@@ -1,4 +1,4 @@
-import funcoes
+import funcoesUpg
 import time
 
 while True:
@@ -18,11 +18,11 @@ while True:
         #time.sleep(2)
         break
     elif escolha == 1:
-        funcoes.cadastroDeEquipes()
+        funcoesUpg.cadastroDeEquipes()
     elif escolha == 2:
-        funcoes.listaDeEquipes()
+        funcoesUpg.listaDeEquipes()
     elif escolha == 3:
-        funcoes.registroDeRetiradas()
+        funcoesUpg.registroDeRetiradas()
     elif escolha == 4:
-        funcoes.listaDemateriaisRetirados()
+        funcoesUpg.listaDemateriaisRetirados()
         
